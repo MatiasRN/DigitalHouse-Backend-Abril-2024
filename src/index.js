@@ -1,10 +1,13 @@
 const express = require( 'express' );
 const app = express();
+const cors = require( "cors" )
 const PORT = 3000;
 
 // Importar los datos desde un archivo JSON
 const products = require( '../data/products.json' );
 
+
+app.use( cors() )
 // Endpoint para buscar items
 app.get( '/api/items', ( req, res ) => {
     const query = req.query[ 'q' ].toLowerCase();
