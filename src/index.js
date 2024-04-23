@@ -39,7 +39,7 @@ app.get( '/api/items', ( req, res ) => {
 } );
 
 // Endpoint para obtener detalles de un producto específico
-app.get( '/api/items/:id', ( req, res ) => {
+app.get( '/api/item/:id', ( req, res ) => {
     const { id } = req.params;
     console.log( "id", id )
     const product = products.products.find( product => product.id == id );
