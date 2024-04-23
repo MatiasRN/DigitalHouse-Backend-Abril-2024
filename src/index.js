@@ -6,9 +6,13 @@ const PORT = 3000;
 // Importar los datos desde un archivo JSON
 const products = require( '../data/products.json' );
 
-
 app.use( cors() )
 // Endpoint para buscar items
+
+app.get( "/status", ( req, res ) => {
+    res.status( 200 ).send( "OK" )
+} )
+
 app.get( '/api/items', ( req, res ) => {
     const { q, skip = 0, limit = 30 } = req.query;
 
@@ -44,9 +48,6 @@ app.get( '/api/items/:id', ( req, res ) => {
     } else {
         res.status( 404 ).send( 'Producto no encontrado' );
     }
-} );
+} ); 
 
-// Iniciar el servidor
-app.listen( PORT, () => {
-    console.log( `Servidor corriendo en http://localhost:${ PORT }` );
-} );
+module.exports = app;
