@@ -20,7 +20,7 @@ app.get( '/api/items', ( req, res ) => {
 // Endpoint para obtener detalles de un producto específico
 app.get( '/api/items/:id', ( req, res ) => {
     const { id } = req.params;
-    const product = products.products.find( product => product.id === id );
+    const product = products.products.find( product => product.id == id );
     if ( product ) {
         res.json( product );
     } else {
